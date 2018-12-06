@@ -16,11 +16,12 @@
                         <thead class="thead-dark">
                         <tr class="d-flex">
                             <th class="col-sm-1 align-middle">id</th>
-                            <th class="col-sm-2 align-middle">Name</th>
-                            <th class="col-sm-3 align-middle">File</th>
-                            <th class="col-sm-3 align-middle">Duration</th>
-{#                            <th class="col-sm-3 align-middle">Date added</th>#}
-{#                            <th class="col-sm-3 align-middle">Added by</th>#}
+                            <th class="col-sm-1 align-middle">Name</th>
+{#                            <th class="col-sm-2 align-middle">File</th>#}
+                            <th class="col-sm-1 align-middle">Duration</th>
+                            <th class="col-sm-2 align-middle">Date added</th>
+                            <th class="col-sm-2 align-middle">Last edited</th>
+                            <th class="col-sm-2 align-middle">Added by</th>
                             <th class="col-sm-3 align-middle">Actions</th>
                         </tr>
                         </thead>
@@ -29,18 +30,30 @@
                             <td class="col-sm-1 align-middle">
                                 #{{ piece.id }}
                             </td>
-                            <td class="col-sm-2 align-middle">
+                            <td class="col-sm-1 align-middle">
                                 {{ piece.name }}
 
                             </td>
-                            <td class="col-sm-3 align-middle">
-                                <a href="media/{{ piece.file }}">{{ piece.file }}</a>
-                            </td>
-                            <td class="col-sm-3 align-middle">
+{#                            <td class="col-sm-2 align-middle">#}
+{#                                <a href="media/{{ piece.file }}">{{ piece.file }}</a>#}
+{#                            </td>#}
+                            <td class="col-sm-1 align-middle">
                                 {{ piece.duration }}
                             </td>
+                            <td class="col-sm-2 align-middle">
+                                {{ piece.date_added }}
+                            </td>
+                            <td class="col-sm-2 align-middle">
+                                {{ piece.last_edited }}
+                            </td>
+                            <td class="col-sm-2 align-middle">
+                                {{ piece.added_by.email }}
+                            </td>
+
                             <td class="col-sm-3 align-middle">
                                <div class="btn btn-sm btn-group-justified">
+                                    <a href="media/{{ piece.file }}" class="text-success"><i class="fa fa-eye"></i> View</a>
+                                    <span> | </span>
                                     <a href="/edit-media/{{ piece.id }}" class="text-warning"><i class="fa fa-edit"></i> Edit</a>
                                     <span> | </span>
                                     <a href="/delete-media/{{ piece.id }}" class="text-danger"><i class="fa fa-trash"></i> Delete</a>

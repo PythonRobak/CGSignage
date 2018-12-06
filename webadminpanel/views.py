@@ -4,11 +4,12 @@ from django.contrib.auth import authenticate, login, logout
 from django.http import HttpResponse
 from django.shortcuts import render, redirect
 from django.views import View
+from datetime import datetime
 
 # Create your views here.
 
 from webadminpanel.forms import LoginForm, AddUserForm, AddMediaForm
-from webadminpanel.models import Media
+from webadminpanel.models import Media, User
 
 
 class LoginUserView(View):
@@ -99,26 +100,21 @@ class AddMediaView(View):
 
     def post(self, request):
         form = AddMediaForm(request.POST, request.FILES or None)
+        logged_user = request.user
         print("*"*50)
+        print(f"User id is: {logged_user.id}")
+        user = User.objects.get(pk=logged_user.id)
 
         if form.is_valid():
             print("add-media form validated")
-            # media = Media()
-            # media.name = form.cleaned_data['name']
-            # media.file = form.cleaned_data['file']
+
 
             try:
-                # media = Media.objects.create(
-                #     name=form.cleaned_data['name'],
-                #     file=form.cleaned_data['file'],
-                #     duration=duration.form.cleaned_data['duration']
-                # )
                 media = Media()
                 media.name = form.cleaned_data['name']
                 media.file = form.cleaned_data['file']
-                # media.file = request.POST.get('file')
                 media.duration = form.cleaned_data['duration']
-
+                media.added_by = user
                 media.save()
 
 
@@ -156,6 +152,7 @@ class EditMediaView(View):
                 media.name = form.cleaned_data['name']
                 media.file = form.cleaned_data['file']
                 media.duration = form.cleaned_data['duration']
+                media.last_edited = datetime.now()
                 media.save()
 
                 return redirect('media')
