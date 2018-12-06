@@ -109,11 +109,14 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/webadminpanel/models.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="42">
-              <caret line="2" selection-start-line="2" selection-end-line="2" selection-end-column="43" />
+            <state relative-caret-position="366">
+              <caret line="31" lean-forward="true" selection-start-line="31" selection-end-line="31" />
+              <folding>
+                <element signature="e#0#9#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -130,7 +133,7 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/templates/webadminpanel/media.html">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="432">
@@ -156,9 +159,9 @@
         <option value="$PROJECT_DIR$/webadminpanel/forms.py" />
         <option value="$PROJECT_DIR$/templates/webadminpanel/edit-media.html" />
         <option value="$PROJECT_DIR$/aplikacja_koncowa_v4/urls.py" />
-        <option value="$PROJECT_DIR$/webadminpanel/models.py" />
         <option value="$PROJECT_DIR$/webadminpanel/views.py" />
         <option value="$PROJECT_DIR$/templates/webadminpanel/media.html" />
+        <option value="$PROJECT_DIR$/webadminpanel/models.py" />
       </list>
     </option>
   </component>
@@ -194,12 +197,6 @@
               <item name="aplikacja_koncowa_v4" type="b2602c69:ProjectViewProjectNode" />
               <item name="aplikacja_koncowa_v4" type="462c0819:PsiDirectoryNode" />
               <item name="webadminpanel" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="aplikacja_koncowa_v4" type="b2602c69:ProjectViewProjectNode" />
-              <item name="aplikacja_koncowa_v4" type="462c0819:PsiDirectoryNode" />
-              <item name="webadminpanel" type="462c0819:PsiDirectoryNode" />
-              <item name="migrations" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -273,12 +270,12 @@
       <updated>1544118274101</updated>
       <workItem from="1544118294766" duration="1565000" />
       <workItem from="1544119944458" duration="1864000" />
-      <workItem from="1544122107576" duration="12039000" />
+      <workItem from="1544122107576" duration="13282000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="15468000" />
+    <option name="totallyTimeSpent" value="16711000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1680" height="1027" extended-state="6" />
@@ -419,13 +416,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/webadminpanel/models.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="42">
-          <caret line="2" selection-start-line="2" selection-end-line="2" selection-end-column="43" />
-        </state>
-      </provider>
-    </entry>
     <entry file="das://4dd2bbfa-1094-47ae-81ec-0113db3d49fc/database/cgsignage_v4/schema/public/table/webadminpanel_media">
       <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
         <state>
@@ -447,6 +437,16 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="432">
           <caret line="54" column="109" selection-start-line="54" selection-start-column="109" selection-end-line="54" selection-end-column="109" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/webadminpanel/models.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="366">
+          <caret line="31" lean-forward="true" selection-start-line="31" selection-end-line="31" />
+          <folding>
+            <element signature="e#0#9#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
