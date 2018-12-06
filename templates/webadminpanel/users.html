@@ -1,0 +1,64 @@
+{% extends "base.html" %}
+{% load widget_tweaks %}
+{% block content %}
+
+    {% if user.is_authenticated %}
+        <div class="row">
+            <div class="col-md-12 text-center my-auto">
+                <h4 class="mt-5 mb-3 pt-4">CGSignage Users Window</h4>
+                <hr class="mt-2 mb-4">
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12 text-center my-auto">
+                <div class="table-responsive-sm small mt-1">
+                    <table class="table table-sm table-striped text-center">
+                        <thead class="thead-dark">
+                        <tr class="d-flex">
+                            <th class="col-sm-1 align-middle">id</th>
+                            <th class="col-sm-2 align-middle">Username</th>
+                            <th class="col-sm-3 align-middle">First Name</th>
+                            <th class="col-sm-3 align-middle">Last Name</th>
+                            <th class="col-sm-3 align-middle">Actions</th>
+                        </tr>
+                        </thead>
+                        {% for user in users %}
+                        <tr class="d-flex">
+                            <td class="col-sm-1 align-middle">
+                                #{{ user.id }}
+                            </td>
+                            <td class="col-sm-2 align-middle">
+                                <a href="/show/{{ user.id }}">{{ user.username }}</a>
+
+                            </td>
+                            <td class="col-sm-3 align-middle">
+                                {{ user.first_name }}
+                            </td>
+                            <td class="col-sm-3 align-middle">
+                                {{ user.last_name }}
+                            </td>
+                            <td class="col-sm-3 align-middle">
+                               <div class="btn btn-sm btn-group-justified">
+                                    <a href="/view/{{ user.id }}" class="text-success"><i class="fa fa-eye"></i> View</a><span> | </span>
+                                    <a href="/modify/{{ user.id }}" class="text-warning"><i class="fa fa-edit"></i> Edit</a><span> | </span>
+                                    <a href="/delete/{{ user.id }}" class="text-danger"><i class="fa fa-user-times"></i> Delete</a>
+                                </div>
+                            </td>
+                        </tr>
+                        {% endfor %}
+                    </table>
+                    <hr class="mt-1 mb-2">
+                    <div class="text-center">
+                        <a href="/add-user" class="btn btn-sm btn-success align-middle"><i class="fa fa-user-plus"></i> Create new user</a>
+                    </div>
+
+                    <hr class="mt-2 mb-4">
+                </div>
+            </div>
+        </div>
+
+    {% else %}
+
+    {% endif %}
+
+{% endblock %}

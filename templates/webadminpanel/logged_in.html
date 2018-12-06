@@ -1,0 +1,60 @@
+{% extends "base.html" %}
+{% load widget_tweaks %}
+{% block title %}
+{% endblock %}
+
+{% block content %}
+
+    {% if user.is_authenticated %}
+
+        <div class="row">
+            <div class="col-md-12 text-center my-auto">
+                <h4 class="mt-5 mb-3 pt-4">CGSignage Main Window</h4>
+                <hr class="mt-2 mb-4">
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-4">
+                <h4>Title 1</h4>
+            </div>
+            <div class="col-md-4">
+                <h4>Title 2</h4>
+            </div>
+            <div class="col-md-4">
+                <h4>Title 3</h4>
+            </div>
+        </div>
+
+
+    {% else %}
+
+        <div class="container">
+    <div class="row">
+      <div class="col-sm-9 col-md-7 col-lg-5 mx-auto">
+        <div class="card card-signin my-5">
+          <div class="card-body">
+            <h5 class="card-title text-center">Login</h5>
+            <form class="form-signin" method="post">
+                {% csrf_token %}
+              <div class="form-label-group mt-3">
+                {{ form.username|add_class:"form-control" }}
+
+              </div>
+
+              <div class="form-label-group mt-3">
+                {{ form.password|add_class:"form-control" }}
+
+              </div>
+
+              <button class="btn mt-3 btn-sm btn-success btn-block text-uppercase" type="submit">Login</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+    {% endif %}
+
+{% endblock %}

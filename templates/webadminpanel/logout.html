@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+{% block title %}
+    Szkoła Chucka Norrisa | Logowanie
+{% endblock %}
+
+{% block content %}
+    {% if user.is_authenticated %}
+        <a href='{% url "logout" %}'>Wyloguj</a>
+    {% else %}
+
+            <form method="post" novalidate>
+                {% csrf_token %}
+
+            <div class="row">
+                <div class="col-6">
+                {{ form.username|as_crispy_field }}
+                </div>
+                <div class="col-6">
+                {{ form.password|as_crispy_field }}
+                </div>
+            </div>
+
+
+
+
+
+                    <br>
+
+                <button type="submit" class="btn btn-success btn-sm">Login</button>
+
+            </form>
+
+
+
+
+    {% endif %}
+
+
+
+
+{% endblock %}
