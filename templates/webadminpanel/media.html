@@ -34,14 +34,14 @@
 
                             </td>
                             <td class="col-sm-3 align-middle">
-                                {{ piece.file }}
+                                <a href="media/{{ piece.file }}">{{ piece.file }}</a>
                             </td>
                             <td class="col-sm-3 align-middle">
                                 {{ piece.duration }}
                             </td>
                             <td class="col-sm-3 align-middle">
                                <div class="btn btn-sm btn-group-justified">
-                                    <a href="/delete/{{ media.id }}" class="text-danger"><i class="fa fa-user-times"></i> Delete</a>
+                                    <a href="/delete/{{ media.id }}" class="text-danger"><i class="fa fa-trash"></i> Delete</a>
                                 </div>
                             </td>
                         </tr>

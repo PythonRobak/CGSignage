@@ -89,20 +89,40 @@ class AddMediaView(View):
         return render(request, 'webadminpanel/add-media.html', {'form': form})
 
     def post(self, request):
-        form = AddMediaForm(request.POST)
+        form = AddMediaForm(request.POST, request.FILES or None)
+        print("*"*50)
+
         if form.is_valid():
+            print("media form validated")
+            media = Media()
+            media.name = form.cleaned_data['name']
+            media.file = form.cleaned_data['file']
 
             try:
-                Media.objects.create(
-                    name=form.cleaned_data['name'],
-                    file=form.cleaned_data['file'],
-                    duration=duration.form.cleaned_data['duration']
-                )
-                return render(request, "webadminpanel/media.html", {'form': form})
+                # media = Media.objects.create(
+                #     name=form.cleaned_data['name'],
+                #     file=form.cleaned_data['file'],
+                #     duration=duration.form.cleaned_data['duration']
+                # )
+                media = Media()
+                media.name = form.cleaned_data['name']
+                media.file = form.cleaned_data['file']
+                # media.file = request.POST.get('file')
+                media.duration = form.cleaned_data['duration']
+
+                media.save()
+                
+
+                return redirect('media')
 
             except Exception:
                 return HttpResponse("Something went wrong!")
 
+        else:
+            print("media form not validated!")
+            print("Błąd formularza:")
+            print(form.errors)
+        return render(request, "webadminpanel/media.html", {'form': form})
 
 class MediaView(View):
     def get(self, request):

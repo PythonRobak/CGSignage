@@ -22,20 +22,20 @@
             <h5 class="card-title text-center">Add Media</h5>
 
                 <h6 class="card-title text-center">
-                {% if form.login.errors %}
-                  <ol>
-                  {% for err in form.login.errors %}
-                    <li>
-                      <strong>
-                        {{ err|escape }}
-                      </strong>
-                    </li>
-                  {% endfor %}
-                {% endif %}
-                    </ol>
+{#                {% if form.errors %}#}
+{#                  <ol>#}
+{#                  {% for err in form.errors %}#}
+{#                    <li>#}
+{#                      <strong>#}
+{#                        {{ err|escape }}#}
+{#                      </strong>#}
+{#                    </li>#}
+{#                  {% endfor %}#}
+{#                {% endif %}#}
+{#                    </ol>#}
                 </h6>
 
-            <form class="form-signin" method="post">
+            <form class="form-signin" method="post" enctype="multipart/form-data">
                 {% csrf_token %}
               <div class="form-label-group mt-3">
                 {{ form.name|add_class:"form-control"|attr:"placeholder:Media Name" }}
