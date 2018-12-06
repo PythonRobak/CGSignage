@@ -1,0 +1,71 @@
+{% extends "base.html" %}
+{% load widget_tweaks %}
+{% block content %}
+
+    {% if user.is_authenticated %}
+        <div class="row">
+            <div class="col-md-12 text-center my-auto">
+                <h4 class="mt-5 mb-3 pt-4">CGSignage Groups Window</h4>
+                <hr class="mt-2 mb-4">
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12 text-center my-auto">
+                <div class="table-responsive-sm small mt-1">
+                    <table class="table table-sm table-striped text-center">
+                        <thead class="thead-dark">
+                        <tr class="d-flex">
+                            <th class="col-sm-1 align-middle">id</th>
+                            <th class="col-sm-2 align-middle">Name</th>
+                            <th class="col-sm-2 align-middle">Date added</th>
+                            <th class="col-sm-2 align-middle">Last edited</th>
+                            <th class="col-sm-2 align-middle">Added by</th>
+                            <th class="col-sm-3 align-middle">Actions</th>
+                        </tr>
+                        </thead>
+                        {% for group in groups %}
+                        <tr class="d-flex">
+                            <td class="col-sm-1 align-middle">
+                                #{{ group.id }}
+                            </td>
+                            <td class="col-sm-2 align-middle">
+                                {{ group.name }}
+
+                            </td>
+                            <td class="col-sm-2 align-middle">
+                                {{ group.date_added }}
+                            </td>
+                            <td class="col-sm-2 align-middle">
+                                {{ group.last_edited }}
+                            </td>
+                            <td class="col-sm-2 align-middle">
+                                {{ group.added_by.email }}
+
+                            <td class="col-sm-3 align-middle">
+                               <div class="btn btn-sm btn-group-justified">
+                                    <a href="group/{{ group.id }}" class="text-success"><i class="fa fa-eye"></i> View</a>
+                                    <span> | </span>
+                                    <a href="/edit-group/{{ group.id }}" class="text-warning"><i class="fa fa-edit"></i> Edit</a>
+                                    <span> | </span>
+                                    <a href="/delete-group/{{ group.id }}" class="text-danger"><i class="fa fa-trash"></i> Delete</a>
+
+                                </div>
+                            </td>
+                        </tr>
+                        {% endfor %}
+                    </table>
+                    <hr class="mt-1 mb-2">
+                    <div class="text-center">
+                        <a href="/add-group" class="btn btn-sm btn-success align-middle"><i class="fa fa-video-plus"></i> Create new group</a>
+                    </div>
+
+                    <hr class="mt-2 mb-4">
+                </div>
+            </div>
+        </div>
+
+    {% else %}
+
+    {% endif %}
+
+{% endblock %}

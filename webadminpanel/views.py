@@ -8,8 +8,8 @@ from datetime import datetime
 
 # Create your views here.
 
-from webadminpanel.forms import LoginForm, AddUserForm, AddMediaForm
-from webadminpanel.models import Media, User
+from webadminpanel.forms import LoginForm, AddUserForm, AddMediaForm, AddGroupForm
+from webadminpanel.models import Media, User, Group
 
 
 class LoginUserView(View):
@@ -172,3 +172,82 @@ class DeleteMediaView(View):
         media = Media.objects.get(pk=media_id)
         media.delete()
         return redirect('media')
+
+
+class GroupView(View):
+    def get(self, request):
+        groups = Group.objects.all()
+        ctx = {
+            'groups': groups
+        }
+        return render(request, 'webadminpanel/group.html', ctx)
+
+
+class AddGroupView(View):
+    def get(self, request):
+        form = AddGroupForm()
+        return render(request, 'webadminpanel/add-group.html', {'form': form})
+
+    def post(self, request):
+        form = AddGroupForm(request.POST)
+        logged_user = request.user
+        print("*"*50)
+        print(f"User id is: {logged_user.id}")
+        user = User.objects.get(pk=logged_user.id)
+
+        if form.is_valid():
+            print("add-group form validated")
+
+
+            try:
+                group = Group()
+                group.name = form.cleaned_data['name']
+                group.description = form.cleaned_data['description']
+                group.added_by = user
+                group.save()
+
+
+                return redirect('group')
+
+            except Exception:
+                return HttpResponse("Something went wrong!")
+
+        else:
+            print("add-group form not validated!")
+            print("Błąd formularza:")
+            print(form.errors)
+        return render(request, "webadminpanel/group.html", {'form': form})
+
+
+class EditGroupView(View):
+    def get(self, request, group_id):
+        group = Group.objects.get(pk=group_id)
+        form = AddGroupForm(initial={
+            'name': group.name,
+            'description': group.description,
+        })
+        return render(request, 'webadminpanel/edit-group.html', {'form': form})
+
+    def post(self, request, group_id):
+        form = AddMediaForm(request.POST)
+
+        if form.is_valid():
+            print("edit-group form validated")
+
+            try:
+                group = Group.objects.get(pk=group_id)
+                group.name = form.cleaned_data['name']
+                group.description = form.cleaned_data['description']
+                group.last_edited = datetime.now()
+                group.save()
+
+                return redirect('group')
+
+            except Exception:
+                return HttpResponse("Something went wrong!")
+
+        else:
+            print("edit-group form not validated!")
+            print("Błąd formularza:")
+            print(form.errors)
+        return render(request, "webadminpanel/group.html", {'form': form})

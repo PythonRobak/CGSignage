@@ -2,7 +2,7 @@ from django import forms
 from django.contrib.auth.models import User
 from django.core.exceptions import ValidationError, ObjectDoesNotExist
 
-from webadminpanel.models import Media
+from webadminpanel.models import Media, Group
 
 
 def login_validator(value):
@@ -38,4 +38,8 @@ class AddMediaForm(forms.ModelForm):
         model = Media
         fields = ['name', 'file', 'duration']
 
+class AddGroupForm(forms.ModelForm):
 
+    class Meta:
+        model = Group
+        fields = ['name', 'description']
