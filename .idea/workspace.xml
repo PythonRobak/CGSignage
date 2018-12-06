@@ -76,13 +76,34 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/webadminpanel/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="508">
-              <caret line="113" column="16" selection-start-line="113" selection-start-column="16" selection-end-line="113" selection-end-column="16" />
+            <state relative-caret-position="454">
+              <caret line="176" column="32" lean-forward="true" selection-start-line="176" selection-start-column="32" selection-end-line="176" selection-end-column="32" />
               <folding>
                 <element signature="e#0#62#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/templates/webadminpanel/edit-media.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="378">
+              <caret line="55" column="107" selection-start-line="55" selection-start-column="107" selection-end-line="55" selection-end-column="107" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/aplikacja_koncowa_v4/urls.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="326">
+              <caret line="43" column="60" selection-start-line="43" selection-start-column="60" selection-end-line="43" selection-end-column="60" />
+              <folding>
+                <element signature="e#774#806#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -101,26 +122,22 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/templates/webadminpanel/add-media.html">
+        <entry file="file://$PROJECT_DIR$/webadminpanel/forms.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="205">
-              <caret line="37" column="82" selection-start-line="37" selection-start-column="82" selection-end-line="37" selection-end-column="82" />
+            <state relative-caret-position="741">
+              <caret line="40" selection-start-line="40" selection-end-line="40" />
+              <folding>
+                <element signature="e#0#24#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/templates/webadminpanel/add-user.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-209" />
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/templates/webadminpanel/media.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="756">
-              <caret line="36" column="85" selection-start-line="36" selection-start-column="85" selection-end-line="36" selection-end-column="85" />
+            <state relative-caret-position="349">
+              <caret line="45" column="58" selection-start-line="45" selection-start-column="58" selection-end-line="45" selection-end-column="58" />
             </state>
           </provider>
         </entry>
@@ -137,13 +154,14 @@
         <option value="$PROJECT_DIR$/webadminpanel/admin.py" />
         <option value="$PROJECT_DIR$/api.py" />
         <option value="$PROJECT_DIR$/webadminpanel/api.py" />
-        <option value="$PROJECT_DIR$/webadminpanel/forms.py" />
-        <option value="$PROJECT_DIR$/aplikacja_koncowa_v4/urls.py" />
-        <option value="$PROJECT_DIR$/templates/webadminpanel/media.html" />
         <option value="$PROJECT_DIR$/aplikacja_koncowa_v4/settings.py" />
         <option value="$PROJECT_DIR$/templates/webadminpanel/add-media.html" />
         <option value="$PROJECT_DIR$/webadminpanel/models.py" />
+        <option value="$PROJECT_DIR$/webadminpanel/forms.py" />
+        <option value="$PROJECT_DIR$/templates/webadminpanel/edit-media.html" />
         <option value="$PROJECT_DIR$/webadminpanel/views.py" />
+        <option value="$PROJECT_DIR$/aplikacja_koncowa_v4/urls.py" />
+        <option value="$PROJECT_DIR$/templates/webadminpanel/media.html" />
       </list>
     </option>
   </component>
@@ -214,6 +232,7 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/templates/webadminpanel" />
       <recent name="$PROJECT_DIR$/webadminpanel" />
       <recent name="$PROJECT_DIR$" />
       <recent name="$PROJECT_DIR$/templates" />
@@ -268,18 +287,18 @@
       <updated>1544118274101</updated>
       <workItem from="1544118294766" duration="1565000" />
       <workItem from="1544119944458" duration="1864000" />
-      <workItem from="1544122107576" duration="5862000" />
+      <workItem from="1544122107576" duration="8692000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="9291000" />
+    <option name="totallyTimeSpent" value="12121000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1680" height="1027" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.25579977" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.25579977" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Database Console" weight="0.32941177" />
@@ -294,7 +313,7 @@
       <window_info anchor="bottom" id="Version Control" order="8" />
       <window_info anchor="bottom" id="Database Changes" order="9" show_stripe_button="false" />
       <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="11" visible="true" weight="0.32941177" />
+      <window_info anchor="bottom" id="Terminal" order="11" visible="true" weight="0.32941177" />
       <window_info anchor="bottom" id="Python Console" order="12" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
@@ -337,13 +356,6 @@
     <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/4dd2bbfa-1094-47ae-81ec-0113db3d49fc/console.sql">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/aplikacja_koncowa_v4/urls.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="672">
-          <caret line="40" column="27" selection-start-line="40" selection-start-column="20" selection-end-line="40" selection-end-column="29" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/api.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="21">
@@ -365,30 +377,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/webadminpanel/forms.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="84">
-          <caret line="4" column="18" selection-start-line="4" selection-start-column="18" selection-end-line="4" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/templates/webadminpanel/add-user.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-209" />
-      </provider>
-    </entry>
-    <entry file="das://4dd2bbfa-1094-47ae-81ec-0113db3d49fc/database/cgsignage_v4/schema/public/table/webadminpanel_media">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/webadminpanel/media.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="756">
-          <caret line="36" column="85" selection-start-line="36" selection-start-column="85" selection-end-line="36" selection-end-column="85" />
-        </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/aplikacja_koncowa_v4/settings.py">
@@ -415,13 +406,54 @@
         </state>
       </provider>
     </entry>
+    <entry file="das://4dd2bbfa-1094-47ae-81ec-0113db3d49fc/database/cgsignage_v4/schema/public/table/webadminpanel_media">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/webadminpanel/forms.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="741">
+          <caret line="40" selection-start-line="40" selection-end-line="40" />
+          <folding>
+            <element signature="e#0#24#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/webadminpanel/edit-media.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="378">
+          <caret line="55" column="107" selection-start-line="55" selection-start-column="107" selection-end-line="55" selection-end-column="107" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/webadminpanel/views.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="508">
-          <caret line="113" column="16" selection-start-line="113" selection-start-column="16" selection-end-line="113" selection-end-column="16" />
+        <state relative-caret-position="454">
+          <caret line="176" column="32" lean-forward="true" selection-start-line="176" selection-start-column="32" selection-end-line="176" selection-end-column="32" />
           <folding>
             <element signature="e#0#62#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/aplikacja_koncowa_v4/urls.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="326">
+          <caret line="43" column="60" selection-start-line="43" selection-start-column="60" selection-end-line="43" selection-end-column="60" />
+          <folding>
+            <element signature="e#774#806#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/webadminpanel/media.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="349">
+          <caret line="45" column="58" selection-start-line="45" selection-start-column="58" selection-end-line="45" selection-end-column="58" />
         </state>
       </provider>
     </entry>

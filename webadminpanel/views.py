@@ -83,6 +83,15 @@ class UsersView(View):
         return render(request, 'webadminpanel/users.html', ctx)
 
 
+class MediaView(View):
+    def get(self, request):
+        media = Media.objects.all()
+        ctx = {
+            'media': media
+        }
+        return render(request, 'webadminpanel/media.html', ctx)
+
+
 class AddMediaView(View):
     def get(self, request):
         form = AddMediaForm()
@@ -93,10 +102,10 @@ class AddMediaView(View):
         print("*"*50)
 
         if form.is_valid():
-            print("media form validated")
-            media = Media()
-            media.name = form.cleaned_data['name']
-            media.file = form.cleaned_data['file']
+            print("add-media form validated")
+            # media = Media()
+            # media.name = form.cleaned_data['name']
+            # media.file = form.cleaned_data['file']
 
             try:
                 # media = Media.objects.create(
@@ -111,7 +120,7 @@ class AddMediaView(View):
                 media.duration = form.cleaned_data['duration']
 
                 media.save()
-                
+
 
                 return redirect('media')
 
@@ -119,16 +128,50 @@ class AddMediaView(View):
                 return HttpResponse("Something went wrong!")
 
         else:
-            print("media form not validated!")
+            print("add-media form not validated!")
             print("Błąd formularza:")
             print(form.errors)
         return render(request, "webadminpanel/media.html", {'form': form})
 
-class MediaView(View):
-    def get(self, request):
-        media = Media.objects.all()
-        ctx = {
-            'media': media
-        }
-        return render(request, 'webadminpanel/media.html', ctx)
 
+class EditMediaView(View):
+    def get(self, request, media_id):
+        media = Media.objects.get(pk=media_id)
+        form = AddMediaForm(initial={
+            'name': media.name,
+            'file': media.filename,
+            'duration': media.duration,
+        })
+        return render(request, 'webadminpanel/edit-media.html', {'form': form})
+
+
+    def post(self, request, media_id):
+        form = AddMediaForm(request.POST, request.FILES or None)
+
+        if form.is_valid():
+            print("edit-media form validated")
+
+            try:
+                media = Media.objects.get(pk=media_id)
+                media.name = form.cleaned_data['name']
+                media.file = form.cleaned_data['file']
+                media.duration = form.cleaned_data['duration']
+                media.save()
+
+                return redirect('media')
+
+            except Exception:
+                return HttpResponse("Something went wrong!")
+
+        else:
+            print("edit-media form not validated!")
+            print("Błąd formularza:")
+            print(form.errors)
+        return render(request, "webadminpanel/media.html", {'form': form})
+
+
+class DeleteMediaView(View):
+    def get(self, request, media_id):
+        media = Media.objects.get(pk=media_id)
+        media.delete()
+        return redirect('media')

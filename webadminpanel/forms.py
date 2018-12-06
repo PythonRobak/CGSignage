@@ -37,3 +37,5 @@ class AddMediaForm(forms.ModelForm):
     class Meta:
         model = Media
         fields = ['name', 'file', 'duration']
+
+
