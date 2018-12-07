@@ -1,0 +1,55 @@
+{% extends "base.html" %}
+{% load widget_tweaks %}
+{% block content %}
+
+    {% if user.is_authenticated %}
+        <div class="row">
+            <div class="col-md-12 text-center my-auto">
+                <h4 class="mt-5 mb-3 pt-4">CGSignage Group id#: {{ group.id }} details</h4>
+                <hr class="mt-2 mb-4">
+            </div>
+        </div>
+        <div class="row text-left">
+            <div class="col-md-4">
+                <h4>Group name:</h4>
+            </div>
+            <div class="col-md-8">
+                <h4>{{ group.name }}</h4>
+            </div>
+            <hr class="mt-2 mb-4">
+        </div>
+        <hr class="mt-2 mb-4">
+        <div class="row text-left">
+            <div class="col-md-4">
+                <h6>Group description:</h6>
+            </div>
+            <div class="col-md-8">
+                <h6>{{ group.description }}</h6>
+            </div>
+
+        </div>
+        <hr class="mt-2 mb-4">
+        <div class="row text-left">
+            <div class="col-md-4">
+                <p class="small">Date added: {{ group.date_added }}</p>
+            </div>
+            <div class="col-md-4">
+                <p class="small">Last edited: {{ group.last_edited }}</p>
+            </div>
+
+            <div class="col-md-4">
+                <p class="small">Added by: {{ group.added_by.email }}</p>
+            </div>
+        </div>
+        <hr class="mt-2 mb-4">
+        <div class="col-md-12 text-center my-auto">
+            <a href="/edit-group/{{ group.id }}" class="btn btn-sm btn-warning align-middle"><i class="fa fa-edit"></i> Edit group</a>
+            <a href="/delete-group/{{ group.id }}" class="btn btn-sm btn-danger align-middle"><i class="fa fa-edit"></i> Delete group</a>
+        </div>
+
+
+    {% else %}
+
+    {% endif %}
+
+{% endblock %}

@@ -28,7 +28,8 @@ from django.conf import settings
 from api import router
 
 from webadminpanel.views import LoginUserView, LogoutUserView, AddUserView, LoggedInView, UsersView, MediaView, \
-    AddMediaView, EditMediaView, DeleteMediaView, GroupView, AddGroupView, EditGroupView
+    AddMediaView, EditMediaView, DeleteMediaView, GroupView, AddGroupView, EditGroupView, GroupDetailsView, \
+    DeleteGroupView
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -45,8 +46,10 @@ urlpatterns = [
     re_path(r'^delete-media/(?P<media_id>(\d)+)$', DeleteMediaView.as_view(), name="delete-media"),
 
     url(r'^group$', GroupView.as_view(), name="group"),
+    re_path(r'^group/(?P<group_id>(\d)+)$', GroupDetailsView.as_view(), name="view-group"),
     url(r'^add-group$', AddGroupView.as_view(), name="add-group"),
     re_path(r'^edit-group/(?P<group_id>(\d)+)$', EditGroupView.as_view(), name="edit-group"),
+    re_path(r'^delete-group/(?P<group_id>(\d)+)$', DeleteGroupView.as_view(), name="delete-group"),
 
     url(r'^api-auth/', include('rest_framework.urls', namespace='rest_framework')),
     url(r'^api/users/', include(router.urls)),

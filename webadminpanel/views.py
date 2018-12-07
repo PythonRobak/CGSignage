@@ -183,6 +183,15 @@ class GroupView(View):
         return render(request, 'webadminpanel/group.html', ctx)
 
 
+class GroupDetailsView(View):
+    def get(self, request, group_id):
+        group = Group.objects.get(pk=group_id)
+        ctx = {
+            'group': group,
+        }
+        return render(request, 'webadminpanel/group-details.html', ctx)
+
+
 class AddGroupView(View):
     def get(self, request):
         form = AddGroupForm()
@@ -229,7 +238,7 @@ class EditGroupView(View):
         return render(request, 'webadminpanel/edit-group.html', {'form': form})
 
     def post(self, request, group_id):
-        form = AddMediaForm(request.POST)
+        form = AddGroupForm(request.POST)
 
         if form.is_valid():
             print("edit-group form validated")
@@ -251,3 +260,10 @@ class EditGroupView(View):
             print("Błąd formularza:")
             print(form.errors)
         return render(request, "webadminpanel/group.html", {'form': form})
+
+
+class DeleteGroupView(View):
+    def get(self, request, group_id):
+        group = Group.objects.get(pk=group_id)
+        group.delete()
+        return redirect('group')
