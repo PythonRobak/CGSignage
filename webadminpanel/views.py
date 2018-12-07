@@ -8,8 +8,8 @@ from datetime import datetime
 
 # Create your views here.
 
-from webadminpanel.forms import LoginForm, AddUserForm, AddMediaForm, AddGroupForm
-from webadminpanel.models import Media, User, Group
+from webadminpanel.forms import LoginForm, AddUserForm, AddMediaForm, AddGroupForm, AddPlayerForm
+from webadminpanel.models import Media, User, Group, Player
 
 
 class LoginUserView(View):
@@ -267,3 +267,18 @@ class DeleteGroupView(View):
         group = Group.objects.get(pk=group_id)
         group.delete()
         return redirect('group')
+
+
+class PlayerView(View):
+    def get(self, request):
+        players = Player.objects.all()
+        ctx = {
+            'players': players
+        }
+        return render(request, 'webadminpanel/player.html', ctx)
+
+
+class AddPlayerView(View):
+    def get(self, request):
+        form = AddPlayerForm()
+        return render(request, 'webadminpanel/add-player.html', {'form': form})

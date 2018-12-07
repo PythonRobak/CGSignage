@@ -29,7 +29,7 @@ from api import router
 
 from webadminpanel.views import LoginUserView, LogoutUserView, AddUserView, LoggedInView, UsersView, MediaView, \
     AddMediaView, EditMediaView, DeleteMediaView, GroupView, AddGroupView, EditGroupView, GroupDetailsView, \
-    DeleteGroupView
+    DeleteGroupView, PlayerView, AddPlayerView
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -50,6 +50,9 @@ urlpatterns = [
     url(r'^add-group$', AddGroupView.as_view(), name="add-group"),
     re_path(r'^edit-group/(?P<group_id>(\d)+)$', EditGroupView.as_view(), name="edit-group"),
     re_path(r'^delete-group/(?P<group_id>(\d)+)$', DeleteGroupView.as_view(), name="delete-group"),
+
+    url(r'^player$', PlayerView.as_view(), name="player"),
+    url(r'^add-player$', AddPlayerView.as_view(), name="add-player"),
 
     url(r'^api-auth/', include('rest_framework.urls', namespace='rest_framework')),
     url(r'^api/users/', include(router.urls)),

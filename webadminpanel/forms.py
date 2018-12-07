@@ -2,7 +2,7 @@ from django import forms
 from django.contrib.auth.models import User
 from django.core.exceptions import ValidationError, ObjectDoesNotExist
 
-from webadminpanel.models import Media, Group
+from webadminpanel.models import Media, Group, Player
 
 
 def login_validator(value):
@@ -43,3 +43,14 @@ class AddGroupForm(forms.ModelForm):
     class Meta:
         model = Group
         fields = ['name', 'description']
+
+
+class AddPlayerForm(forms.ModelForm):
+
+    class Meta:
+        model = Player
+        fields = ['name', 'description', 'number_of_screens', 'geo_longitude', 'geo_latitude', 'country', 'state',
+                  'street', 'street_number', 'building_number', 'status', 'groups']
+
+
+

@@ -1,0 +1,107 @@
+{% extends "base.html" %}
+{% load widget_tweaks %}
+{% block title %}
+{% endblock %}
+
+{% block content %}
+
+    {% if user.is_authenticated %}
+        <div class="row">
+            <div class="col-md-12 text-center my-auto">
+                <h4 class="mt-5 mb-3 pt-4">CGSignage Add Player</h4>
+                <hr class="mt-2 mb-4">
+            </div>
+        </div>
+        <form method="post">
+        <div class="row">
+
+                {% csrf_token %}
+                <div class="col-md-12">
+                    <h5 class="card-title text-center">Add Player</h5>
+
+                        <div class="col-md-4 text-left float-left">
+                            <span class="small">Player Name: </span>
+                            {{ form.name|add_class:"form-control"|attr:"placeholder:Player Name" }}
+                        </div>
+                        <div class="col-md-2 text-left float-left">
+                            <span class="small">Number of screens: </span>
+                            {{ form.number_of_screens|add_class:"form-control"|attr:"placeholder:Number of screens" }}
+                        </div>
+                        <div class="col-md-3 text-left float-left">
+                            <span class="small">Geo Longitude: </span>
+                            {{ form.geo_longitude|add_class:"form-control small"|attr:"placeholder:Longitude" }}
+                        </div>
+                        <div class="col-md-3 text-left float-left">
+                            <span class="small">Geo Latitude: </span>
+                            {{ form.geo_latitude|add_class:"form-control small"|attr:"placeholder:Latitude" }}
+                        </div>
+
+
+
+
+                </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <h5 class="card-title text-left mt-4">Player Adress:</h5>
+            </div>
+            <div class="col-md-4 text-left float-left">
+                <span class="small">Country: </span>
+                {{ form.country|add_class:"form-control small"|attr:"placeholder:Country" }}
+            </div>
+            <div class="col-md-4 text-left float-left">
+                <span class="small">State: </span>
+                {{ form.state|add_class:"form-control small"|attr:"placeholder:State" }}
+            </div>
+            <div class="col-md-4 text-left float-left">
+                <span class="small">City: </span>
+                {{ form.city|add_class:"form-control small"|attr:"placeholder:City" }}
+            </div>
+
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+
+            </div>
+            <div class="col-md-4 text-left float-left">
+                <span class="small">Street: </span>
+                {{ form.street|add_class:"form-control small"|attr:"placeholder:Street" }}
+            </div>
+            <div class="col-md-4 text-left float-left">
+                <span class="small">State: </span>
+                {{ form.state|add_class:"form-control small"|attr:"placeholder:State" }}
+            </div>
+            <div class="col-md-4 text-left float-left">
+                <span class="small">State: </span>
+                {{ form.state|add_class:"form-control small"|attr:"placeholder:State" }}
+            </div>
+
+        </div>
+        <button class="btn mt-5 mb-4 btn-success btn-block text-uppercase" type="submit">Add Player</button>
+        </form>
+
+{#            name = models.CharField(max_length=256)#}
+{#    description = models.TextField()#}
+{#    number_of_screens = models.IntegerField(default=1)#}
+{#    geo_longitude = models.FloatField()#}
+{#    geo_latitude = models.FloatField()#}
+{#    country = models.CharField(max_length=50)#}
+{#    state = models.CharField(max_length=50)#}
+{#    street = models.CharField(max_length=150)#}
+{#    street_number = models.CharField(max_length=20)#}
+{#    building_number = models.CharField(max_length=50)#}
+{#    date_added = models.DateTimeField(auto_now_add=True, blank=True)#}
+{#    added_by = models.ForeignKey(User, on_delete=models.CASCADE)#}
+{#    last_edit = models.DateTimeField(auto_now=True, blank=True)#}
+{#    status = models.IntegerField(choices=PLAYER_STATUS)#}
+{#    groups = models.ManyToManyField(Group, blank=True)#}
+
+
+
+    {% else %}
+
+
+
+    {% endif %}
+
+{% endblock %}
