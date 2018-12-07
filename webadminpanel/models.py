@@ -30,22 +30,29 @@ class Group(models.Model):
         return f"{self.name}"
 
 
-# class Player(models.Model):
-#     name = models.CharField(max_length=256)
-#     description = models.TextField()
-#     number_of_screens = models.IntegerField(default=1)
-#     geo_longitude = models.FloatField()
-#     geo_latitude = models.FloatField()
-#     country = models.CharField(max_length=50)
-#     state = models.CharField(max_length=50)
-#     street = models.CharField(max_length=150)
-#     street_number = models.CharField(max_length=20)
-#     building_number = models.CharField(max_length=50)
-#     date_added = models.DateTimeField(auto_now_add=True)
-#     added_by = models.ForeignKey(User, on_delete=models.CASCADE)
-#     last_edit = models.DateTimeField(auto_now=True)
-#     status = models.IntegerField(choices=PLAYER_STATUS)
-#     groups = models.ForeignKey(Group, on_delete=models.CASCADE)
+PLAYER_STATUS = (
+    (1, "Online"),
+    (2, "Offline"),
+    (3, "Connection lost")
+)
+
+
+class Player(models.Model):
+    name = models.CharField(max_length=256)
+    description = models.TextField()
+    number_of_screens = models.IntegerField(default=1)
+    geo_longitude = models.FloatField()
+    geo_latitude = models.FloatField()
+    country = models.CharField(max_length=50)
+    state = models.CharField(max_length=50)
+    street = models.CharField(max_length=150)
+    street_number = models.CharField(max_length=20)
+    building_number = models.CharField(max_length=50)
+    date_added = models.DateTimeField(auto_now_add=True, blank=True)
+    added_by = models.ForeignKey(User, on_delete=models.CASCADE)
+    last_edit = models.DateTimeField(auto_now=True, blank=True)
+    status = models.IntegerField(choices=PLAYER_STATUS)
+    groups = models.ManyToManyField(Group, blank=True)
 
 
 # class Campaign(models.Model):
