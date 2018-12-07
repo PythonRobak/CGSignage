@@ -281,4 +281,48 @@ class PlayerView(View):
 class AddPlayerView(View):
     def get(self, request):
         form = AddPlayerForm()
+
         return render(request, 'webadminpanel/add-player.html', {'form': form})
+
+    def post(self, request):
+        form = AddPlayerForm(request.POST)
+        logged_user = request.user
+        print("*"*50)
+        print(f"User id is: {logged_user.id}")
+        user = User.objects.get(pk=logged_user.id)
+
+        if form.is_valid():
+            print("add-player form validated")
+
+
+
+            try:
+                player = Player()
+                player.name = form.cleaned_data['name']
+                player.description = ''
+                player.number_of_screens = form.cleaned_data['number_of_screens']
+                player.geo_longitude = form.cleaned_data['geo_longitude']
+                player.geo_latitude = form.cleaned_data['geo_latitude']
+                player.country = form.cleaned_data['country']
+                player.state = form.cleaned_data['state']
+                player.city = form.cleaned_data['city']
+                player.street = form.cleaned_data['street']
+                player.street_number = form.cleaned_data['street_number']
+                player.building_number = form.cleaned_data['building_number']
+                player.status = form.cleaned_data['status']
+
+                player.added_by = user
+
+                player.save()
+
+
+                return redirect('player')
+
+            except Exception:
+                return HttpResponse("Something went wrong!")
+
+        else:
+            print("add-player form not validated!")
+            print("Błąd formularza:")
+            print(form.errors)
+        return render(request, "webadminpanel/player.html", {'form': form})

@@ -39,19 +39,20 @@ PLAYER_STATUS = (
 
 class Player(models.Model):
     name = models.CharField(max_length=256)
-    description = models.TextField()
+    description = models.TextField(blank=True, null=True)
     number_of_screens = models.IntegerField(default=1)
-    geo_longitude = models.FloatField()
-    geo_latitude = models.FloatField()
+    geo_longitude = models.FloatField(blank=True)
+    geo_latitude = models.FloatField(blank=True)
     country = models.CharField(max_length=50)
     state = models.CharField(max_length=50)
+    city = models.CharField(max_length=150, blank=True)
     street = models.CharField(max_length=150)
     street_number = models.CharField(max_length=20)
-    building_number = models.CharField(max_length=50)
+    building_number = models.CharField(max_length=50, blank=True)
     date_added = models.DateTimeField(auto_now_add=True, blank=True)
     added_by = models.ForeignKey(User, on_delete=models.CASCADE)
     last_edit = models.DateTimeField(auto_now=True, blank=True)
-    status = models.IntegerField(choices=PLAYER_STATUS)
+    status = models.IntegerField(choices=PLAYER_STATUS, blank=True, null=True)
     groups = models.ManyToManyField(Group, blank=True)
 
 

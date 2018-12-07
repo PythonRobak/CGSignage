@@ -17,23 +17,23 @@
 
                 {% csrf_token %}
                 <div class="col-md-12">
-                    <h5 class="card-title text-center">Add Player</h5>
+{#                    <h5 class="card-title text-center">Add Player</h5>#}
 
                         <div class="col-md-4 text-left float-left">
                             <span class="small">Player Name: </span>
-                            {{ form.name|add_class:"form-control"|attr:"placeholder:Player Name" }}
+                            {{ form.name|add_class:"form-control" }}
                         </div>
                         <div class="col-md-2 text-left float-left">
                             <span class="small">Number of screens: </span>
-                            {{ form.number_of_screens|add_class:"form-control"|attr:"placeholder:Number of screens" }}
+                            {{ form.number_of_screens|add_class:"form-control" }}
                         </div>
                         <div class="col-md-3 text-left float-left">
                             <span class="small">Geo Longitude: </span>
-                            {{ form.geo_longitude|add_class:"form-control small"|attr:"placeholder:Longitude" }}
+                            {{ form.geo_longitude|add_class:"form-control small" }}
                         </div>
                         <div class="col-md-3 text-left float-left">
                             <span class="small">Geo Latitude: </span>
-                            {{ form.geo_latitude|add_class:"form-control small"|attr:"placeholder:Latitude" }}
+                            {{ form.geo_latitude|add_class:"form-control small" }}
                         </div>
 
 
@@ -43,41 +43,53 @@
         </div>
         <div class="row">
             <div class="col-md-12">
-                <h5 class="card-title text-left mt-4">Player Adress:</h5>
+                <h5 class="card-title text-center mt-5">Player Adress:</h5>
             </div>
             <div class="col-md-4 text-left float-left">
                 <span class="small">Country: </span>
-                {{ form.country|add_class:"form-control small"|attr:"placeholder:Country" }}
+                {{ form.country|add_class:"form-control small" }}
             </div>
             <div class="col-md-4 text-left float-left">
                 <span class="small">State: </span>
-                {{ form.state|add_class:"form-control small"|attr:"placeholder:State" }}
+                {{ form.state|add_class:"form-control small" }}
             </div>
             <div class="col-md-4 text-left float-left">
                 <span class="small">City: </span>
-                {{ form.city|add_class:"form-control small"|attr:"placeholder:City" }}
+                {{ form.city|add_class:"form-control small" }}
             </div>
 
         </div>
         <div class="row">
-            <div class="col-md-12">
+            <div class="col-md-12 mt-4">
 
             </div>
             <div class="col-md-4 text-left float-left">
                 <span class="small">Street: </span>
-                {{ form.street|add_class:"form-control small"|attr:"placeholder:Street" }}
+                {{ form.street|add_class:"form-control small" }}
             </div>
-            <div class="col-md-4 text-left float-left">
-                <span class="small">State: </span>
-                {{ form.state|add_class:"form-control small"|attr:"placeholder:State" }}
+            <div class="col-md-2 text-left float-left">
+                <span class="small">Building number: </span>
+                {{ form.street_number|add_class:"form-control small" }}
             </div>
-            <div class="col-md-4 text-left float-left">
-                <span class="small">State: </span>
-                {{ form.state|add_class:"form-control small"|attr:"placeholder:State" }}
+            <div class="col-md-2 text-left float-left">
+                <span class="small">Flat number: </span>
+                {{ form.building_number|add_class:"form-control small" }}
             </div>
+            <div class="col-md-2 text-left float-left">
+                <span class="small">Status: </span>
+                {{ form.status }}
+            </div>
+            <div class="col-md-1 text-left float-left">
+                <span class="small">Groups: </span>
+                {{ form.groups }}
+            </div>
+            <button class="btn mt-5 mb-4 btn-success btn-block text-uppercase" type="submit">Add Player</button>
 
+
+            <div class="row mt-5"
+
+            </div>
         </div>
-        <button class="btn mt-5 mb-4 btn-success btn-block text-uppercase" type="submit">Add Player</button>
         </form>
 
 {#            name = models.CharField(max_length=256)#}

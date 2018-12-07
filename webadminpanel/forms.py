@@ -46,11 +46,15 @@ class AddGroupForm(forms.ModelForm):
 
 
 class AddPlayerForm(forms.ModelForm):
+    # status = forms.IntegerField(label="status")
+
+    field_order = ['name', 'description', 'number_of_screens', 'geo_longitude', 'geo_latitude', 'country', 'state',
+              'city', 'street', 'street_number', 'building_number', 'status', 'groups']
 
     class Meta:
         model = Player
         fields = ['name', 'description', 'number_of_screens', 'geo_longitude', 'geo_latitude', 'country', 'state',
-                  'street', 'street_number', 'building_number', 'status', 'groups']
+                  'city','street', 'street_number', 'building_number', 'status', 'groups']
 
 
 

@@ -17,9 +17,9 @@
                         <tr class="d-flex">
                             <th class="col-sm-1 align-middle">id</th>
                             <th class="col-sm-2 align-middle">Name</th>
-                            <th class="col-sm-2 align-middle">Date added</th>
-                            <th class="col-sm-2 align-middle">Last edited</th>
-                            <th class="col-sm-2 align-middle">Added by</th>
+                            <th class="col-sm-3 align-middle">Address</th>
+                            <th class="col-sm-1 align-middle">Screens</th>
+                            <th class="col-sm-2 align-middle">Status</th>
                             <th class="col-sm-3 align-middle">Actions</th>
                         </tr>
                         </thead>
@@ -32,14 +32,32 @@
                                 {{ player.name }}
 
                             </td>
-                            <td class="col-sm-2 align-middle">
-                                {{ player.date_added }}
+                            <td class="col-sm-3 align-middle">
+                                {{ player.city }}, ul. {{ player.street }} {{ player.street_number }} / {{ player.building_number }}
                             </td>
-                            <td class="col-sm-2 align-middle">
-                                {{ player.last_edited }}
+                            <td class="col-sm-1 align-middle">
+                                {{ player.number_of_screens }}
                             </td>
+                            {% if player.status == 1 %}
+                            <td class="col-sm-2 align-middle text-success">
+                                {{ player.get_status_display }}
+                            </td>
+
+                            {% elif player.status == 2 %}
+                            <td class="col-sm-2 align-middle text-danger">
+                                {{ player.get_status_display }}
+                            </td>
+
+                            {% elif player.status == 3 %}
+                            <td class="col-sm-2 align-middle text-warning">
+                                {{ player.get_status_display }}
+                            </td>
+
+                            {% else %}
                             <td class="col-sm-2 align-middle">
-                                {{ player.added_by.email }}
+                                Status error
+                            </td>
+                            {% endif %}
 
                             <td class="col-sm-3 align-middle">
                                <div class="btn btn-sm btn-group-justified">
